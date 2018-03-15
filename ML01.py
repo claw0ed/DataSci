@@ -181,3 +181,68 @@ print('test 데이터를 이용한 예측값', y_pred)
 print('test 데이터 대비 예측값 정확도', np.mean(y_test == y_pred)) # 예측한 값
 print('test 데이터 대비 예측값 정확도', knn.score(x_test, y_test)) # 기존 데이터 값
 
+# 대부분의 지도학습 알고리즘(의사결정나무, SVM, 나이브베이지안)이
+# 그렇듯 주어진 학습자료들로 부터 모형(모델)을 추정하여
+# 새로운 실증자료가 주어지면 모형에 적합하여 예측값을 산출함
+# 이러한 학습방법을 eager 방식이라 함
+
+# 하지만, KNN은 학습자료가 주어져도 아무런 움직임이 없다가
+# 실증자료가 주어져야만 그때서 부터 움직이기 시작함
+# 이러한 학습방법을 lazy 방식이라 함
+
+# 지도학습 분류방법 중 가장 간단한 방법 : KNN
+# 많은 메모리 소요(대용량 데이터일 때 불리함)
+# 대안 : 로지스틱 회귀, 딥러닝 이용
+
+# 분류의 개념
+# 미리 정의된, 가능성 있는 여러 클래스 결과값(레이블) 중 하나를 예측
+# iris의 경우 결과값은 모두 3가지 : setosa, versicolor, virginica
+# 이진분류 : 질문의 답 중 하나를 예측 (스팸메일 분류)
+# 다항분류 : 3가지 이상 질문의 답 중 하나를 예측
+
+# 일반화/과대적합/과소적합
+# 일반화 : 모델을 통해 처음 보는 데이터에 대해 정확히 예측할 수 있는 경우
+#  예) 요트구매 고객 정보 : 나이, 보유차량수, 주택보유, 자녀수, 혼인여부, 애완견, 보트구매
+# 요트를 구매한 고객과 구매의사가 없는 고객 데이터를 토대로
+# 누가 요트를 구매할지 예측해보자
+
+# 과대적합 : 나이가 45세 이상, 자녀가 3명이상,
+#           이혼하지 않은 고객은 요트를 구매할 것이다
+#           너무 많은 특성을 이용해서 복잡한 모델을 만드는 경우
+
+# 과소적합 : "애완견이 있는 고객은 요트를 구매할것이다"
+#           너무 작은 특성을 이용해서 단순한 모델을 만드는 경우
+
+# KNN 알고리즘 : k값의 변화에 따른 산점도 비교
+# mglearn 패키지 설치
+import mglearn as mg
+
+x, y = mg.datasets.make_forge() # 데이터집합 생성
+mg.discrete_scatter(x[:, 0], x[:, 1], y) # 산점도 작성
+plt.show()
+
+# k값이 1일때 KNN 알고리즘 이웃모델 예측
+mg.plots.plot_knn_classification(n_neighbors=1)
+plt.show()
+
+# k값이 3일때 KNN 알고리즘 이웃모델 예측
+mg.plots.plot_knn_classification(n_neighbors=3)
+plt.show()
+
+# k값이 5일때 KNN 알고리즘 이웃모델 예측
+mg.plots.plot_knn_classification(n_neighbors=5)
+plt.show()
+
+# k값을 3으로 설정후 KNN 알고리즘 적용
+# 데이터집합 생성
+x, y = mg.datasets.make_forge()
+x_train, x_test, y_train, y_test = \
+    train_test_split(x, y, random_state=0)
+
+clf = KNeighborsClassifier(n_neighbors=3)
+knn.fit(x_train, y_train) # train 데이터로 학습
+
+print( knn.predict(x_test) ) # test 데이터로 예측 [1 0 1 0 1 0 0]
+
+print( "정확도 ", knn.score(x_test, y_test) ) # 예측 평가 [정확도  0.8571428571428571]
+
