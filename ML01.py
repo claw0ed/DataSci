@@ -117,11 +117,67 @@
 
 import numpy as np
 import pandas as pd
-import matplotlib as plt
+import matplotlib.pyplot as plt
 
 from sklearn.datasets import load_iris
 iris = load_iris() # iris 데이터 불러옴
 
 print(iris.keys()) # iris 데이터 키 출력
-print(iris['data'][:5]) # iris 데이터 처음 5행만 출력
+print(iris['data'][:5])   # iris 데이터 처음 5행만 출력 (x)
+print(iris['target'][:5]) # iris 타켓(품종) 5행만 출력 (y)
+print(iris['target_names']) # iris 타켓(품종) 출력
+
+# scikit-learn에서 train_test_spkit 함수를 이용해서
+# 데이터집합을 일정비율(75:25)%로 나눠 train/test 로 작성
+from sklearn.model_selection import train_test_split
+
+print(iris['data'].shape)   # iris 데이터 크기
+print(iris['target'].shape) # iris 타켓 크기
+
+x_train, x_test, y_train, y_test = \
+    train_test_split(iris['data'], iris['target'], random_state=0)
+
+print("학습데이터 크기", x_train.shape)
+print("평가데이터 크기", x_test.shape)
+print(y_train.shape)
+print(y_test.shape)
+
+# 머신러닝 모델을 만들기 전에
+# 머신러닝을 이용해서 풀어도 되는 문제인지
+# 데이터에 이상은 없는지 여부 확인을 위해 시각화 도구 이용
+# 대표적인 시각화 도구 : 산포도/산점도
+# 하지만, 산점도로는 3개 이상의 특성을 표현하기 어려움
+# 모든 특성을 짝지어 만드는 산점도 행렬을 사용할 것을 추천
+# 4개의 특성을 가진 븟꽃의 경우에 적합
+
+# 단, 데이터가 행렬로 작성되어 있기 때문에
+# dataframe으로 변환 필요
+from pandas.plotting import scatter_matrix
+iris_df = pd.DataFrame(x_train)
+scatter_matrix(iris_df, c=y_train, figsize=(15,15), marker='o')
+plt.show()
+
+# k-최근접 알고리즘에서 k는 가장 가까운 이웃 '하나'가 아니라
+# 훈련데이터 중 새로운 데이터와
+# 가장 가까운 k개의 이웃을 찾는다는 의미
+# 머신러닝의 모든 모델은 scikit-learn 의 Estimator 클래스에 구현
+# KNN 알고리즘은 neighbors 모듈의 KNeighborsClassifier 클래스에 구현
+from sklearn.neighbors import KNeighborsClassifier
+knn = KNeighborsClassifier(n_neighbors=1) # k=1로 설정
+
+knn.fit(x_train, y_train) # train 데이터로 분류모델 학습시킴
+
+x_new = np.array([[5, 2.9, 1, 0.2]]) # 예측을 위한 데이터 생성
+
+prediction = knn.predict(x_new) # 예측값 조사
+print("예측결과", prediction)
+print("예측결과 대비 품종", iris['target_names'][prediction])
+
+# 예측모델 평가 - 신뢰성 확인
+# 앞서 만든 test 데이터집합을 이용
+y_pred = knn.predict(x_test)
+print('test 데이터를 이용한 예측값', y_pred)
+
+print('test 데이터 대비 예측값 정확도', np.mean(y_test == y_pred)) # 예측한 값
+print('test 데이터 대비 예측값 정확도', knn.score(x_test, y_test)) # 기존 데이터 값
 
