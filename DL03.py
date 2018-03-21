@@ -14,6 +14,14 @@ from PIL import Image
 import numpy as np
 
 # 이미지를 avhash 형태로 변환하는 함수
+# 이미지를 0, 1 형태의 배열로 나타내기 위한 방법
+# 알고리즘이 간단하고 변환속도가 빨라서
+# 이미지 비교시 자주 사용되는 기법 중 하나
+
+# 처리 순서
+# 이미지를 흑백으로 바꾸고, 크기를 줄인 후
+# 픽셀 평균값(픽셀값의 총합/픽셀수)을 계산한 후,
+# 그것에 따라 0,1 로 변환
 def average_hash(fname, size=16):
     img = Image.open(fname) # 이미지 파일을 읽기
     img = img.convert('L') # 이미지를 흑백으로 변환
@@ -27,6 +35,9 @@ def average_hash(fname, size=16):
     return diff
 
 # 바이너리 hash로 변환하는 함수
+# 두 이미지 유사성을 검사할때 픽셀 하나하나 비교하는 것은 비효율적
+# 따라서, 이미지를 변환한 전체 픽셀에 대해 hash 코드를 생성하고
+# 그것으로 오차범위내에서 비교하는 것이 편리
 def np2hash(n):
     bhash = []
     for n1 in n.tolist():

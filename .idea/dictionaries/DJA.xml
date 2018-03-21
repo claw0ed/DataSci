@@ -1172,6 +1172,7 @@
       <w>Athens</w>
       <w>Atikokan</w>
       <w>Auckland</w>
+      <w>Auto</w>
       <w>Axis</w>
       <w>AxisSecondary</w>
       <w>Azores</w>
@@ -1324,7 +1325,9 @@
       <w>Cape_Verde</w>
       <w>Capitalization</w>
       <w>Caracas</w>
+      <w>Caravan</w>
       <w>Cars93</w>
+      <w>Carseats</w>
       <w>Casablanca</w>
       <w>Casey</w>
       <w>Catamarca</w>
@@ -1370,6 +1373,7 @@
       <w>CoefMat</w>
       <w>CoefMat.multigroupfit</w>
       <w>Col</w>
+      <w>College</w>
       <w>ColoCan</w>
       <w>Colombo</w>
       <w>ColorMap</w>
@@ -1394,6 +1398,7 @@
       <w>CorpusChristi</w>
       <w>Costa_Rica</w>
       <w>Cowles</w>
+      <w>Credit</w>
       <w>CrohnD</w>
       <w>Cs</w>
       <w>Cstack_info</w>
@@ -1444,6 +1449,7 @@
       <w>Dawson</w>
       <w>Dawson_Creek</w>
       <w>DebugReporter</w>
+      <w>Default</w>
       <w>Delt</w>
       <w>Delta</w>
       <w>Denver</w>
@@ -1715,6 +1721,7 @@
       <w>IGF</w>
       <w>INDEXED_COLORS_</w>
       <w>IQR</w>
+      <w>ISLR</w>
       <w>ISOdate</w>
       <w>ISOdatetime</w>
       <w>ITAllSaints</w>
@@ -1836,6 +1843,7 @@
       <w>Key</w>
       <w>Key2</w>
       <w>Kfn</w>
+      <w>Khan</w>
       <w>Khartoum</w>
       <w>KhatriRao</w>
       <w>KhmaladzeTest</w>
@@ -2035,6 +2043,7 @@
       <w>MySQL</w>
       <w>NA2x</w>
       <w>NAToUnknown</w>
+      <w>NCI60</w>
       <w>NCOL</w>
       <w>NIRmilk</w>
       <w>NLSstAsymptotic</w>
@@ -2089,6 +2098,7 @@
       <w>OBrienKaiser</w>
       <w>OHLC</w>
       <w>OHLCV</w>
+      <w>OJ</w>
       <w>OLD10</w>
       <w>OLDSAX</w>
       <w>OME</w>
@@ -2207,6 +2217,7 @@
       <w>Population</w>
       <w>Port_Moresby</w>
       <w>Port_of_Spain</w>
+      <w>Portfolio</w>
       <w>Porto_Velho</w>
       <w>Position</w>
       <w>PositionDodge</w>
@@ -2485,6 +2496,7 @@
       <w>Sl.initial.repara</w>
       <w>Sl.repara</w>
       <w>Sl.setup</w>
+      <w>Smarket</w>
       <w>SmartControl</w>
       <w>Smoking</w>
       <w>Sn</w>
@@ -2774,10 +2786,12 @@
       <w>WPR</w>
       <w>WWWusage</w>
       <w>Wafer</w>
+      <w>Wage</w>
       <w>Wake</w>
       <w>Wallis</w>
       <w>Warsaw</w>
       <w>WeatherPlay</w>
+      <w>Weekly</w>
       <w>Weibull2</w>
       <w>WeightLoss</w>
       <w>Weights</w>
