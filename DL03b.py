@@ -22,7 +22,7 @@ def average_hash(fname, size=24):
     fname_new = fname[len(find_dir):]
 
     # 이미지 캐시하기
-    cache_file = cache_dir + "/" +\
+    cache_file = cache_dir + "/" + \
         fname_new.replace('\\', '_') + ".csv"
     if not os.path.exists(cache_file):
 
