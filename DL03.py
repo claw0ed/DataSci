@@ -21,7 +21,7 @@ import numpy as np
 # 처리 순서
 # 이미지를 흑백으로 바꾸고, 크기를 줄인 후
 # 픽셀 평균값(픽셀값의 총합/픽셀수)을 계산한 후,
-# 그것에 따라 0,1 로 변환
+# 어두움의 정도에 따라 0,1 로 변환
 def average_hash(fname, size=16):
     img = Image.open(fname) # 이미지 파일을 읽기
     img = img.convert('L') # 이미지를 흑백으로 변환
