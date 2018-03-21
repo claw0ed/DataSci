@@ -9,8 +9,8 @@ import numpy as np
 import os, re
 
 # 이미지 파일경로 정의
-find_dir = 'c:/Java/101_ObjectCategories'
-cache_dir = 'c:/Java/101_ObjectCategories/cache_avghash'
+find_dir = 'data/images/101_ObjectCategories'
+cache_dir = 'data/images/101_ObjectCategories/cache_avghash'
 
 # average hash cache 디렉토리가 없으면 자동생성
 if not os.path.exists( cache_dir ):
