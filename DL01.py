@@ -78,7 +78,7 @@ x = data_set[:, 0:17]
 y = data_set[:, 17]
 
 # 딥러닝 실행 방식을 설정 (모델 설정 및 실행방법 정의)
-model =Sequential()
+model = Sequential()
 model.add(Dense(30, input_dim=17, activation='relu'))
 # 입력데이터는 17, 은닉층 갯수는 30, 적용 알고리즘 함수는 relu
 model.add(Dense(1, activation='sigmoid'))
