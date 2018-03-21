@@ -18,6 +18,7 @@ def average_hash(fname, size=16):
     img = Image.open(fname) # 이미지 파일을 읽기
     img = img.convert('L') # 이미지를 흑백으로 변환
     img = img.resize((size, size), Image.ANTIALIAS) # 이미지크기 변환
+
     pixel_data = img.getdata() # 픽셀 데이터 가져옴
     pixels = np.array(pixel_data) # 픽셀 데이터를 numpy 배열로 생성
     pixels = pixels.reshape((size, size)) # 2차원배열로 변환
