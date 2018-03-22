@@ -3,7 +3,7 @@
 #github.com/fchollet/keras
 #neural style transfer
 #입력값이 은닉층을 거치면서 일부정보가 소실된다는 점을 착안
-#대상 사진과 스타일로 적용할 사진을 신경망에 입력하며 ㄴ적절한 비율로 두사진으 ㄹ섞어서 새로운 스타일의 사진을 출력
+#대상 사진과 스타일로 적용할 사진을 신경망에 입력하며 적절한 비율로 두사진으 섞어서 새로운 스타일의 사진을 출력
 
 '''Neural style transfer with Keras.
 
